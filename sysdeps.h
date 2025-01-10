@@ -167,7 +167,6 @@ extern int unix_open(std::string_view path, int options, ...);
 // Returns 1 if |fd| is a console FD, 0 otherwise. The value of errno after
 // calling this function is unreliable and should not be used.
 int unix_isatty(borrowed_fd fd);
-#define  isatty  ___xxx_isatty
 
 int network_inaddr_any_server(int port, int type, std::string* error);
 
@@ -580,7 +579,6 @@ static inline int adb_creat(const char* path, int mode) {
 static inline int unix_isatty(borrowed_fd fd) {
     return isatty(fd.get());
 }
-#define isatty ___xxx_isatty
 
 // Helper for network_* functions.
 inline int _fd_set_error_str(int fd, std::string* error) {

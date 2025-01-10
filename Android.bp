@@ -939,6 +939,7 @@ python_test_host {
     name: "adb_integration_test_device",
     main: "test_device.py",
     srcs: [
+        ":adb_host_proto",
         "test_device.py",
     ],
     libs: [
